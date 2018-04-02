@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 class Pipe:
 
-    def __init__(self, threads = 2, exceptionHandler = None, chunksize = 24, processor = None):
+    def __init__(self, threads = 2, exception_handler = None, chunksize = 24, processor = None):
         """ Constructor.
 
         :return void
@@ -52,7 +52,7 @@ class Pipe:
 
             except Exception as e:
 
-                if not self.exceptionHandler:
+                if not self.exception_handler:
                     raise e
 
-                self.exceptionHandler(e)
+                self.exception_handler(e)
