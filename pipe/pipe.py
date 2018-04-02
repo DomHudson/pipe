@@ -10,7 +10,7 @@ class Pipe:
         """
         self.threads = threads
         self.chunksize = chunksize
-        self.exceptionHandler = exceptionHandler
+        self.exception_handler = exception_handler
         self.processor = processor
 
     def run(self, items, work):
