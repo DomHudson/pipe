@@ -1,6 +1,6 @@
 # pipe
 
-Simple and lightweight package to easily multithread work but retain the job ordering.
+Simple and lightweight package to easily multithread work but retain the ordering. Provide a callable and an iterable of arguments. `pipe.Pipe` will yield the results in the correct order.
 
 ## Installation
 ```bash
@@ -9,7 +9,6 @@ pip install .
 ```
 
 ## Basic Usage
-Provide a callable and an iterable of arguments. `pipe.Pipe` will yield the results in the correct order.
 ```python
 import pipe
 
