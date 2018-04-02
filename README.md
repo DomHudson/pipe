@@ -51,11 +51,9 @@ def work(item):
   return item ** 2
   
 def processor(result):
-  if result == 25:
-    return None
-  return result
+  return [result]
 
 for item in pipe.Pipe(post_processor=processor).run(range(6), work):
   print(item, end=' ')
 ```
-> 0 1 4 9 16 None 
+> [0] [1] [4] [9] [16] [25] 
