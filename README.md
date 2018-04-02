@@ -40,3 +40,23 @@ for item in pipe.Pipe(exception_handler=handler).run(range(6), work):
   print(item, end=' ')
 ```
 > 0 1 4 Cannot process. 16 25 
+
+## Run Post-Processing on Results
+
+Easily handle the results in the main-thread as they're yielded.
+
+```python
+import pipe
+
+def work(item):
+  return item ** 2
+  
+def processor(result):
+  if result == 25:
+    return None
+  return result
+
+for item in pipe.Pipe(threads=2, processor=processor).run(range(6), work):
+  print(item, end=' ')
+```
+> 0 1 4 9 16 None 
