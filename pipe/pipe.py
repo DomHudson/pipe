@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 class Pipe:
 
-    def __init__(self, threads = 2, exception_handler = None, chunksize = 24, processor = None):
+    def __init__(self, threads = 2, exception_handler = None, chunksize = 24, post_processor = None):
         """ Constructor.
 
         :return void
@@ -11,7 +11,7 @@ class Pipe:
         self.threads = threads
         self.chunksize = chunksize
         self.exception_handler = exception_handler
-        self.processor = processor
+        self.post_processor = post_processor
 
     def run(self, items, work):
         """ Run the pipe. Multithread work in batches
@@ -45,8 +45,8 @@ class Pipe:
             try:
                 result = future.result()
 
-                if callable(self.processor):
-                    yield self.processor(result)
+                if callable(self.post_processor):
+                    yield self.post_processor(result)
                 else:
                     yield result
 
