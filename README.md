@@ -56,7 +56,7 @@ def processor(result):
     return None
   return result
 
-for item in pipe.Pipe(threads=2, processor=processor).run(range(6), work):
+for item in pipe.Pipe(post_processor=processor).run(range(6), work):
   print(item, end=' ')
 ```
 > 0 1 4 9 16 None 
