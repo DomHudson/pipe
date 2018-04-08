@@ -9,6 +9,9 @@ pip install .
 ```
 
 ## Basic Usage
+
+`work` is multithreaded, but the results are returned in the same order as the input generator. 
+
 ```python
 import pipe
 
